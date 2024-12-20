@@ -6,7 +6,7 @@ resource "aws_route53_record" "expense" {
   type    = "A"
   ttl     = 1
   records = startswith(each.key, "frontend") ? [each.value.public_ip] : [each.value.private_ip]
-          # startswith("helloworld", "hello") --> true
+  # startswith("helloworld", "hello") --> true
   # keeping above else block in list because the output we got is in list format
   allow_overwrite = true
 }
